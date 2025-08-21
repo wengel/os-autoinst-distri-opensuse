@@ -1,0 +1,15 @@
+name:           extra_tests_textmode_phub
+description:    >
+    Maintainer: bigironman.
+schedule:
+    - installation/bootloader_start
+    - boot/boot_to_desktop
+    - console/system_prepare
+    - console/prepare_test_data
+    - console/consoletest_setup
+    - locale/keymap_or_locale
+    - console/force_scheduled_tasks
+    - console/textinfo
+    - console/hostname
+    - console/suseconnect_phub
+    - shutdown/shutdown
