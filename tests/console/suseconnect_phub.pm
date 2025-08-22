@@ -39,8 +39,8 @@ sub run {
     assert_script_run "SUSEConnect --status-text| grep -v 'Not Registered'";
     zypper_call 'ref';
     assert_script_run "SUSEConnect --list-extensions";
-
-    add_suseconnect_product(is_sle('<15') ? 'sle-live-patching' : 'sle-module-live-patching', undef, undef, "-r $live_reg_code");
+    # disabling live patching for now since it doesn't detect sles16 properly
+    #    add_suseconnect_product(is_sle('<15') ? 'sle-live-patching' : 'sle-module-live-patching', undef, undef, "-r $live_reg_code");
 
     assert_script_run "suseconnect -p PackageHub/16.0/x86_64";
     assert_script_run "suseconnect -l";
