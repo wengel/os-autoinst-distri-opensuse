@@ -3,13 +3,9 @@
 # Copyright 2025 SUSE LLC
 # SPDX-License-Identifier: FSFAP
 
-# Package: SUSEConnect
-# Summary: Test SUSEConnect by registering system, module and deregistration.
-# - De-register system using SUSEConnect (-d, --cleanup,  --status-text)
-# - Register product using SCC_REGCODE code
-# - Add live patching if SLE < 15 using SCC_REGCODE_LIVE
-# - Check registering status
-# Maintainer: Juraj Hura <jhura@suse.com>
+# Package: packages are defined in variable PACKAGES
+# Summary: Test installation of packages defined in variable PACKAGES
+# Maintainer: Wolfgang Engel <wolfgang.engel@suse.com>
 
 use base "consoletest";
 use strict;
