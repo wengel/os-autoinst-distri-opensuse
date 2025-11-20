@@ -42,12 +42,14 @@ sub run {
     # disabling live patching for now since it doesn't detect sles16 properly
     #    add_suseconnect_product(is_sle('<15') ? 'sle-live-patching' : 'sle-module-live-patching', undef, undef, "-r $live_reg_code");
 
+    # register Package Hub
     assert_script_run "suseconnect -p PackageHub/16.0/x86_64";
     assert_script_run "suseconnect -l";
 
     assert_script_run "SUSEConnect --status";
-    assert_script_run "SUSEConnect -d || SUSEConnect --cleanup";
-    assert_script_run "SUSEConnect --status-text";
+    # disable de-registration if other tests will run after this which need Package Hub to be enabled
+    #    assert_script_run "SUSEConnect -d || SUSEConnect --cleanup";
+    #    assert_script_run "SUSEConnect --status-text";
 
 }
 
