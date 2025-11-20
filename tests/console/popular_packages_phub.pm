@@ -23,7 +23,7 @@ sub run {
     select_serial_terminal;
 
     # convert variable $popular_packages into array
-    @popular_packages = split ' ', $popular_packages;
+    my @popular_packages = split ' ', $popular_packages;
 
     # install packages with zypper_call
     foreach $package (@popular_packages)
