@@ -30,6 +30,7 @@ sub run {
     # Make sure to start with de-registered system. In case the system is not registered this command will fail
     assert_script_run "SUSEConnect -d || SUSEConnect --cleanup";
     assert_script_run "SUSEConnect --status-text";
+    assert_script_run "SUSEConnect --cleanup";
 
     zypper_call('lr', exitcode => [0, 6]);
     zypper_call 'services';
