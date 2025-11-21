@@ -17,13 +17,14 @@ use registration;
 use version_utils 'is_sle';
 
 sub run {
-    my $popular_packages = get_required_var("PACKAGES");
+	#my $popular_packages = get_required_var("PACKAGES");
+    my @popular_packages = ("vlc", "chromium");
     my $arch = get_required_var("ARCH");
 
     select_serial_terminal;
 
     # convert variable $popular_packages into array
-    my @popular_packages = split ' ', $popular_packages;
+    #my @popular_packages = split ' ', $popular_packages;
 
     # install packages with zypper_call
     foreach $package (@popular_packages)
