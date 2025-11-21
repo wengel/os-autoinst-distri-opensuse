@@ -28,7 +28,7 @@ sub run {
     # install packages with zypper_call
     foreach $package (@popular_packages)
     {
-      zypper_call "in $package"
+      zypper_call "in $package";
     }
 
 }
