@@ -27,6 +27,7 @@ sub run {
     #my @popular_packages = split ' ', $popular_packages;
 
     # install packages with zypper_call
+    my $package = ();
     foreach $package (@popular_packages)
     {
       zypper_call "in $package";
