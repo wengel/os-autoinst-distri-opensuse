@@ -23,6 +23,7 @@ use version_utils 'is_sle';
 sub run {
     my $reg_code = get_required_var("SCC_REGCODE");
     my $arch = get_required_var("ARCH");
+    my $version = get_required_var("VERSION");
     #    my $live_reg_code = get_required_var("SCC_REGCODE_LIVE");
 
     select_serial_terminal;
@@ -44,7 +45,7 @@ sub run {
     #    add_suseconnect_product(is_sle('<15') ? 'sle-live-patching' : 'sle-module-live-patching', undef, undef, "-r $live_reg_code");
 
     # register Package Hub
-    assert_script_run "source /etc/os-release; suseconnect -p PackageHub/$SUSE_SUPPORT_PRODUCT_VERSION/x86_64";
+    assert_script_run "suseconnect -p PackageHub/$version/x86_64";
     assert_script_run "suseconnect -l";
 
     assert_script_run "SUSEConnect --status";
