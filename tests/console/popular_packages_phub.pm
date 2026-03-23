@@ -31,7 +31,7 @@ sub run {
     my $package = ();
     foreach $package (@popular_packages) {
       if (zypper_call("in $package", exitcode => [0, 104] == 104)) {
-	  record_info("Installation of package $package failed.";
+	  record_info("Installation of package $package failed.");
 	      #record_soft_failure "Package $package can't be installed.";
           push(@popular_packages_fail, $package);
           return;
