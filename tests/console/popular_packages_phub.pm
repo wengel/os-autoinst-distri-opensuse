@@ -35,7 +35,6 @@ sub run {
 	  #record_soft_failure("Package $package can't be installed.");
           push(@popular_packages_fail, $package);
       }
-      return;
     }
     my $package_fail = ();
     if (@popular_packages_fail) {
