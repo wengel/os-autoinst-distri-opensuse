@@ -34,15 +34,15 @@ sub run {
 	  record_info($package);
 	  #record_soft_failure("Package $package can't be installed.");
           push(@popular_packages_fail, $package);
-          return;
       }
+      return;
     }
     my $package_fail = ();
     if (@popular_packages_fail) {
       foreach my $package_fail (@popular_packages_fail) {
         print "$package_fail";
       }
-      record_soft_failure("Failed to install at least one package.");
+      record_soft_failure("Failed to install at least one package(s): @popular_packages_fail");
       return;
     }
 
