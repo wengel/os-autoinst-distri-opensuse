@@ -29,8 +29,7 @@ sub run {
 
     # install packages with zypper_call
     my $package = ();
-    foreach $package (@popular_packages)
-    {
+    foreach $package (@popular_packages) {
       if (zypper_call("in $package", exitcode => [0, 104] == 104)) {
           push(@popular_packages_fail, $package);
           return 0;
