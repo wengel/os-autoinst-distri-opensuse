@@ -31,7 +31,7 @@ sub run {
     my $package = ();
     foreach $package (@popular_packages)
     {
-      if ((zypper_call("in $package", exitcode => [0, 104] == 104)) {
+      if (zypper_call("in $package", exitcode => [0, 104] == 104)) {
           push(@popular_packages_fail, $package);
           return 0;
       }
