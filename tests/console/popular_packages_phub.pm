@@ -17,17 +17,11 @@ use registration;
 use version_utils 'is_sle';
 
 sub run {
-	#my $popular_packages = get_required_var("PACKAGES");
-    # my @popular_packages = ("vlc", "chromium", "libreoffice", "wine", "blueman", "libqca-qt5-2", "qca-qt5", "coolkey", "gnome-icon-theme", "0ad", "evolution-data-server", "python3-threadpoolctl", "prosody", "tumbler", "cockpit-storaged", "exim", "cyrus-imapd", "perl-Sys-Mmap", "php8-redis", "dleyna-server", "python313-drgn", "criu", "blender", "fail2ban", "opentofu", "openQA", "telegraf", "rspamd", "yubikey-manager", "sassist", "intel-opencl", "rshim", "obex-data-server", "leveldb", "perl-App-cpanminus", "audacity", "python3-pytest", "tesseract-ocr", "ansible-test", "uwsgi", "uwsgi-python3");
     my $arch = get_required_var("ARCH");
-    # my $packages = get_required_var("POPULAR_PACKAGES");
     my @popular_packages = split(',', get_required_var("POPULAR_PACKAGES"));
     my @popular_packages_fail = ();
 
     select_serial_terminal;
-
-    # convert variable $popular_packages into array
-    #my @popular_packages = split ' ', $popular_packages;
 
     # install packages with zypper_call
     my $package = ();
