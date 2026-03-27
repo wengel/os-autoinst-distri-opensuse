@@ -19,7 +19,9 @@ use version_utils 'is_sle';
 sub run {
     my $arch = get_required_var("ARCH");
     my @popular_packages = split(',', get_required_var("POPULAR_PACKAGES"));
+    my @popular_patterns = split(',', get_required_var("POPULAR_PATTERNS"));
     my @popular_packages_fail = ();
+    my @popular_patterns_fail = ();
 
     select_serial_terminal;
 
@@ -30,6 +32,13 @@ sub run {
 	  record_info($package);
 	  #record_soft_failure("Package $package can't be installed.");
           push(@popular_packages_fail, $package);
+      }
+    }
+    my $pattern = ();
+    foreach $pattern (@popular_patterns) {
+      if ((zypper_call("in -t pattern $pattern", exitcode => [0, 4, 104]) != 0)){
+        record_info($pattern);
+	push(@popular_patterns_fail, $pattern);
       }
     }
     my $package_fail = ();
