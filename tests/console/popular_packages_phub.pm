@@ -46,9 +46,18 @@ sub run {
       foreach my $package_fail (@popular_packages_fail) {
         print "$package_fail";
       }
-      record_soft_failure("Failed to install at least one package(s): @popular_packages_fail");
+      record_soft_failure("Failed to install package(s): @popular_packages_fail");
       return;
     }
+    my $pattern_fail = ();
+    if (@popular_patterns_fail) {
+      foreach my $Pattern_fail (@popular_patterns_fail){
+        print "$pattern_fail";
+      }
+      record_soft_failure("Failed to install pattern(s): @popular_patterns_fail");
+      return;
+    }
+
 
 sub test_flags {
     return {always_rollback => 0};
