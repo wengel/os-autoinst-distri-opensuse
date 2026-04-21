@@ -1,7 +1,21 @@
 {
   product: {
+    "addons": [
+         {
+            "id": "PackageHub"
+         }
+      ],
     id: '{{AGAMA_PRODUCT_ID}}',
     registrationCode: '{{SCC_REGCODE}}'
+  },
+  "questions": {
+      "answers": [
+         {
+            "answer": "Trust",
+            "class": "software.import_gpg"
+         }
+      ],
+      "policy": "auto"
   },
   software: {
     patterns: [
